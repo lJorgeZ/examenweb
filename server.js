@@ -6,9 +6,20 @@ const ReactDOMServer = require('react-dom/server');
 const app = express();
 
 const App = () => {
+    const backgroundImage = 'https://images.hdqwalls.com/wallpapers/space-pink-stars-4k-ld.jpg';
+
+    const containerStyle = {
+        textAlign: 'center',
+        marginTop: '200px',
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        minHeight: '100vh',
+      };
+
     return React.createElement(
       'div',
-      { style: { textAlign: 'center', marginTop: '200px' } },
+      { style: containerStyle },
       React.createElement(
         'h1',
         null,
@@ -17,9 +28,9 @@ const App = () => {
       ),
       React.createElement('iframe', {
         src: 'https://drive.google.com/file/d/1ftZW93PuuDiqsFoKCkOgcxOi56NL0ea8/preview',
-        width: '640',
-        height: '480',
-        frameborder: '0',
+        width: '480',
+        height: '360',
+        frameBorder: '0',
         allowfullscreen: true,
       })
     );
