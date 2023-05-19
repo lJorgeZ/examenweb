@@ -106,12 +106,10 @@ const images = [
 ];
 
 const App = () => {
-  return (
-    <div style={{ textAlign: 'center', marginTop: '200px' }}>
-      <h1>Te amo, Vivi <span role="img" aria-label="heart">❤️</span></h1>
-      <ImageGallery items={images} />
-    </div>
-  );
+    return React.createElement('div', { style: { textAlign: 'center', marginTop: '200px' } },
+        React.createElement('h1', null, 'Te amo, Vivi ', React.createElement('span', { role: 'img', 'aria-label': 'heart' }, '❤️')),
+        React.createElement(ImageGallery, { items: images })
+    );
 };
 
 app.get('/', (req, res) => {
