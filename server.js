@@ -113,7 +113,7 @@ const App = () => {
 };
 
 app.get('/', (req, res) => {
-    const html = ReactDOMServer.renderToString(<App />);
+    const html = ReactDOMServer.renderToString(React.createElement(App));
     res.send(html);
 });
   
