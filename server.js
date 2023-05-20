@@ -29,13 +29,12 @@ const requireLogin = (req, res, next) => {
   }
 };
 
-
 const Content = () => {
   return React.createElement(
     'div',
     { style: { textAlign: 'center', marginTop: '200px' } },
     React.createElement(
-      'h1',
+      'h2',
       null,
       'Te amo, Vivi ',
       React.createElement('span', { role: 'img', 'aria-label': 'heart' }, '❤️')
@@ -67,7 +66,7 @@ app.post('/login', (req, res) => {
     host: 'bscc4e1hsl7mtyubfoku-mysql.services.clever-cloud.com',
     user: 'un8qvd8n5ihtfoba',
     password: 'zmAt3xz9yp8Wi0jYByJK',
-    database: 'bscc4e1hsl7mtyubfoku'
+    database: 'bscc4e1hsl7mtyubfoku',
   });
 
   connection.connect((err) => {
@@ -85,7 +84,7 @@ app.post('/login', (req, res) => {
             req.session.isAuthenticated = true;
             res.redirect('/');
           } else {
-            alert('Credenciales invalidas !');
+            console.log('Credenciales invalidas !');
             res.redirect('/login');
           }
         }
@@ -101,6 +100,10 @@ app.post('/login', (req, res) => {
 });
 
 app.use(express.static('public'));
+
+app.get('*', (req, res) => {
+  res.status(404).send('404 Not Found');
+});
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
