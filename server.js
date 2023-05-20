@@ -6,8 +6,6 @@ const ReactDOMServer = require('react-dom/server');
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
 const Login = require('./Login.js');
-const App = require('./server.js');
-require('mdb-react-ui-kit/dist/css/mdb.min.css');
 
 const app = express();
 
